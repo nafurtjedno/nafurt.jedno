@@ -457,6 +457,37 @@ ul li::before {
   border-radius: 5px 0 0 5px;
 }
 
+/* === KALENDÁR SVADBA.HTML === */
+
+.calendar-section {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.calendar-embed-wrapper {
+  /* Zaistí, že iframe nezaberá viac ako 90% kontajnera a je na strede */
+  max-width: 900px; 
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* Odreže prípadné pretečenie */
+}
+
+.calendar-embed-wrapper iframe {
+  /* Uistí sa, že iframe je vždy responzívny */
+  width: 100%; 
+  height: 600px; /* Pevná výška, môžete zmeniť */
+  display: block;
+}
+
+/* Úprava na menšie obrazovky */
+@media (max-width: 600px) {
+  .calendar-embed-wrapper iframe {
+      height: 400px; /* Trochu nižšia výška na mobiloch */
+  }
+}
+
+
 /* === Responsivita pre Časovú Os === */
 @media (max-width: 600px) {
   .timeline-card {
@@ -485,4 +516,5 @@ ul li::before {
   .gallery {
     max-width: 100%; /* Na mobiloch na celú šírku */
   }
+
 }
