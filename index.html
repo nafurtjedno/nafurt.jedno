@@ -38,6 +38,38 @@
         object-fit: contain;
       }
 
+      /* Upravená úvodná sekcia s animovaným pozadím */
+.hero-white {
+    width: 100%;
+    /* Tvoje definované farby */
+    background: linear-gradient(-45deg, #000000, #D9D9D9, #685127, #8884FF);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+    
+    /* Zabezpečíme, aby obrázok oznámenia nebol "prilepený" na okrajoch, 
+       ak chceš vidieť kúsok animácie aj okolo neho */
+    padding: 20px 0; 
+}
+
+
+
+/* Odstránime line-height: 0 z wrapperu, aby animácia pod obrázkom vynikla */
+.announcement-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.full-width-img {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    /* Ak má tvoje oznamko priehľadné pozadie (PNG), 
+       animácia bude presvitať aj cez neho. 
+       Ak je oznamko biele, bude to vyzerať ako pekný rámik. */
+}
+
       /* --- POČÍTADLO --- */
       .countdown {
         background: #f8f0e3;
@@ -263,6 +295,19 @@
         font-weight: bold;
       }
 
+      /* Definícia animácie gradientu */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
       /* Responzivita pre mobily */
       @media screen and (max-width: 768px) {
         .timeline::after {
@@ -302,7 +347,7 @@
     </style>
   </head>
   <body>
-    <div class="hero">
+    <div class="hero hero-white">
       <img src="foto/FAVORIT.png" alt="Svadobný obrázok" />
     </div>
 
