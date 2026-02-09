@@ -1,107 +1,497 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sk">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Svadba Janka a Daniel - Domov</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>1.5 J+D=❤️</title>
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+        font-family: "Arial", sans-serif;
+      }
+
+      /* --- HERO --- */
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .hero img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      /* --- POČÍTADLO --- */
+      .countdown {
+        background: #f8f0e3;
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .countdown h2 {
+        margin-bottom: 40px;
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .countdown .boxes {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .countdown .box {
+        background: #ffffff;
+        padding: 30px 20px;
+        border-radius: 12px;
+        flex: 1 1 100px;
+        max-width: 150px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .countdown .box span {
+        display: block;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: bold;
+      }
+
+      .countdown .box small {
+        display: block;
+        font-size: 1rem;
+        color: #666;
+      }
+
+      /* --- TLAČIDLO PRE POZVANÝCH (UPRAVENÉ) --- */
+      .invite-section {
+        /* Poriadne farebný gradient (kombinácia svadobnej ružovej a zlatej) */
+        background: linear-gradient(
+          135deg,
+          #ffe4e1 0%,
+          #ffb6c1 50%,
+          #f8f0e3 100%
+        );
+        padding: 100px 20px;
+        text-align: center;
+        border-top: 5px solid #685127;
+        border-bottom: 5px solid #685127;
+      }
+
+      .invite-section .btn-invite {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        padding: 20px 50px;
+        background-color: #685127; /* Tvoja hlavná hnedá */
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+
+        /* Animácia pumpujúceho srdca */
+        animation: heartbeat 1.5s infinite ease-in-out;
+      }
+
+      /* Efekt pri prejdení myšou */
+      .invite-section .btn-invite:hover {
+        background-color: #4a3a1c;
+        transform: scale(1.1); /* Ešte viac sa zväčší */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        color: #ffe4e1;
+      }
+
+      /* Definícia animácie heartbeat */
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
+        }
+        15% {
+          transform: scale(1.05);
+        }
+        30% {
+          transform: scale(1);
+        }
+        45% {
+          transform: scale(1.1);
+        }
+        60% {
+          transform: scale(1);
+        }
+      }
+
+      /* --- SEKCE DETAILOV (OBRAD A HOSTINA) --- */
+      .info-section {
+        background: #685127; /* tvoja pôvodná farba */
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .info-section h3 {
+        margin-bottom: 20px;
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+      }
+
+      .info-section img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        margin: 25px 0;
+        border-radius: 8px;
+      }
+
+      .info-section p {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        max-width: 800px;
+        margin: 15px auto;
+        line-height: 1.6;
+      }
+
+      /* Miesto pre mapu */
+      .map-placeholder {
+        background: #e5e5e5;
+        color: #333;
+        width: 100%;
+        max-width: 800px;
+        height: 300px;
+        margin: 30px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+      }
+
+      /* --- ČASOVÁ OS (TIMELINE) --- */
+      .timeline-section {
+        padding: 80px 20px;
+        background-color: #ffffff;
+      }
+
+      .timeline-section h2 {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      /* Stredová čiara */
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: #685127;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+      }
+
+      /* Krúžok na čiare */
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: white;
+        border: 4px solid #685127;
+        top: 20px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .left {
+        left: 0;
+        text-align: right;
+      }
+      .right {
+        left: 50%;
+        text-align: left;
+      }
+
+      .right::after {
+        left: -10px;
+      }
+
+      .content {
+        padding: 20px;
+        background-color: #f8f0e3;
+        border-radius: 12px;
+      }
+
+      .content img {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .content h4 {
+        margin-top: 0;
+        color: #685127;
+        font-weight: bold;
+      }
+
+      /* Responzivita pre mobily */
+      @media screen and (max-width: 768px) {
+        .timeline::after {
+          left: 31px;
+        }
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+          text-align: left;
+        }
+        .timeline-item::after {
+          left: 21px;
+          right: auto;
+        }
+        .left {
+          left: 0;
+        }
+        .right {
+          left: 0;
+        }
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background: #333;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      footer a {
+        color: #ffe4e1;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar">
-      <a href="index.html" class="nav-brand">J & D</a>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Domov</a>
-        <a href="o_nas.html">O nás</a>
-        <a href="svadba.html">Svadba</a>
-        <a href="hostina.html">Hostina</a>
-      </div>
-      <button class="hamburger" onclick="toggleMenu()">☰</button>
-    </nav>
-    <header class="hero">
-      <h1 class="names">Janka & Daniel</h1>
-      <h2>S radosťou oznamujeme, že sa chystáme prijať sviatosť manželstva.</h2>
-      <div class="countdown-container">
-        <h2 id="countdown">000 dní 00:00:00</h2>
-        <p class="date">1. MÁJ 2026</p>
-        
-        <div id="countdown-details" class="countdown-details">
-            </div>
+    <div class="hero">
+      <img src="foto/FAVORIT.png" alt="Svadobný obrázok" />
     </div>
-  </header>
 
-  <section class="personal-counters container">
-      
-      <div class="relationship-counter">
-          <h3 class="counter-heading">Spolu sme už...</h3>
-          <div id="relationship-days" class="big-number">0</div>
-          <p>dní</p>
-          <div class="small-details">
-              <span id="relationship-minutes">0</span> minút | 
-              <span id="relationship-seconds">0</span> sekúnd
-          </div>
+    <div class="countdown">
+      <h2>Do našej svadby zostáva</h2>
+      <div class="boxes">
+        <div class="box">
+          <span id="days">0</span>
+          <small>Dní</small>
+        </div>
+        <div class="box">
+          <span id="hours">0</span>
+          <small>Hodín</small>
+        </div>
+        <div class="box">
+          <span id="minutes">0</span>
+          <small>Minút</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="invite-section">
+      <h2 style="color: #685127; margin-bottom: 30px; font-weight: bold">
+        Plánujete prísť na hostinu?
+      </h2>
+      <a
+        href="https://forms.gle/njdGcXNZVzwBo6KG8"
+        target="_blank"
+        class="btn-invite"
+      >
+        Potvrdiť účasť
+      </a>
+      <p style="margin-top: 20px; color: #685127">
+        Prosíme o spätnú väzbu do 31.3.2026
+      </p>
+    </div>
+
+    <div class="info-section">
+      <h3>Svadobný obrad</h3>
+      <p>
+        Svadobná svätá omša začína o <b>15:00</b> u saleziánov v Michalovciach
+        na ulici <b>Špitálska 15</b>.
+      </p>
+
+      <img src="foto/stredisko.png" alt="Stredisko Saleziáni" />
+
+      <p>
+        Parkovať sa dá priamo v areáli na hokejbalovom ihrisku, alebo v
+        priľahlých uliciach pred strediskom a v okolí. Pozrite si mapku nižšie:
+      </p>
+
+      <div>
+        <iframe
+          class="map-placeholder"
+          style="border: none"
+          src="https://mapy.com/s/lagofebevo"
+          width="400"
+          height="280"
+          frameborder="90"
+        ></iframe>
       </div>
 
-      <div class="age-counters-grid">
-          
-          <div class="age-card">
-              <h3 class="counter-heading">Jankin vek (sekundy)</h3>
-              <div id="janka-seconds" class="big-number seconds-style">0</div>
-              <p>sekúnd</p>
-          </div>
-          
-          <div class="age-card">
-              <h3 class="counter-heading">Danielov vek (sekundy)</h3>
-              <div id="daniel-seconds" class="big-number seconds-style">0</div>
-              <p>sekúnd</p>
-          </div>
-          
-      </div>
-  </section>
-  <main class="container">
-      <section class="info-section">
-        <h2>Tešíme sa na Vás!</h2>
-        <div class="details-grid">
-          <div>
-            <h3>Obrad</h3>
-            <p>Kostol Panny Márie, Pomocnice kresťanov</p>
-            <p>Saleziáni, Michalovce</p>
-            <p class="time">15:00</p>
-          </div>
-          <div>
-            <h3>Hostina</h3>
-            <p>Prejdite prosím na stránku <a href="hostina.html">Hostina</a>.</p>
-            <p class="time">RSVP do 1.4.2026</p>
+      <hr
+        style="
+          width: 50%;
+          margin: 60px auto;
+          border-color: rgba(255, 255, 255, 0.3);
+        "
+      />
+
+      <h3>Svadobná hostina</h3>
+      <p>
+        Po svätej omši a gratuláciách sa spoločne presunieme do
+        <b>hotela Glamour na Šírave</b>, kde budeme pokračovať v oslavách až do
+        skorého rána ;)
+      </p>
+
+      <img src="foto/hotel_glamour.png" alt="Hotel Glamour" />
+    </div>
+
+    <div class="timeline-section">
+      <h2>Náš príbeh</h2>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="content">
+            <img src="foto/o_nas (1).jpg" alt="Zoznámenie" />
+            <h4>Dátum / Rok</h4>
+            <p>
+              Tu napíš, ako ste sa spoznali alebo kedy padla prvá kosa na kameň.
+            </p>
           </div>
         </div>
-      </section>
 
-      <section id="login-section" class="login-form-section">
-        <hr />
-        <h3>Kontakt</h3>
-        <p>
-            Pre bližšie detaily prejdite na sekciu <a href="svadba.html">Svadba</a>.
-        </p>
-      </section>
+        <div class="timeline-item right">
+          <div class="content">
+            <img src="foto/o_nas (2).jpeg" alt="Prvé rande" />
+            <h4>Dátum / Rok</h4>
+            <p>Krátky popis k vašej druhej dôležitej udalosti.</p>
+          </div>
+        </div>
 
-      <section
-        id="private-content"
-        class="private-section"
-        style="display: none"
-      >
-        <h2>🥳 Toto je starý obsah. Presuňte ho do Hostina.html</h2>
-      </section>
-    </main>
+        <div class="timeline-item left">
+          <div class="content">
+            <img src="foto/o_nas (3).jpeg" alt="Spoločné výlety" />
+            <h4>Dátum / Rok</h4>
+            <p>Napríklad vaša prvá spoločná dovolenka alebo spoločné hobby.</p>
+          </div>
+        </div>
 
-    <footer class="footer">
-      <p>V prípade otázok nás kontaktujte na:</p>
+        <div class="timeline-item right">
+          <div class="content">
+            <img src="foto/o_nas (4).jpeg" alt="Zásnuby" />
+            <h4>Dátum / Rok</h4>
+            <p>Ten moment, kedy sa "jedno" začalo meniť na "nafurt".</p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="content">
+            <img src="foto/o_nas (5).jpeg" alt="Naša spoločná fotka 5" />
+            <h4>Dátum / Rok</h4>
+            <p>
+              Tu môžeš doplniť ďalší dôležitý míľnik, napríklad spoločné
+              sťahovanie alebo prvé domáce zvieratko.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="content">
+            <img src="foto/o_nas (6).jpeg" alt="Naša spoločná fotka 6" />
+            <h4>Dátum / Rok</h4>
+            <p>
+              Ďalší pekný zážitok, možno z nejakej oslavy alebo výletu s
+              rodinou.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="content">
+            <img src="foto/o_nas (7).jpeg" alt="Naša spoločná fotka 7" />
+            <h4>Dátum / Rok</h4>
+            <p>
+              Predposledný kúsok skladačky vášho príbehu pred tým, než prišlo k
+              veľkému rozhodnutiu.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="content">
+            <img src="foto/o_nas (1).jpeg" alt="Naša spoločná fotka 8" />
+            <h4>Dátum / Rok</h4>
+            <p>
+              Záver časovej osi, ktorý nás privádza až k dnešnému dňu a
+              prípravám na našu svadbu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Máte akékoľvek otázky? Neváhajte nás kontaktovať s čímkoľvek na:</p>
       <p><a href="mailto:nafurt.jedno@gmail.com">nafurt.jedno@gmail.com</a></p>
-      <p>© Janka & Daniel 2026</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      const weddingDate = new Date("May 1, 2026 15:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const diff = weddingDate - now;
+
+        if (diff > 0) {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          );
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+          document.getElementById("days").innerText = days;
+          document.getElementById("hours").innerText = hours;
+          document.getElementById("minutes").innerText = minutes;
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
   </body>
 </html>
