@@ -20,6 +20,22 @@
         font-family: "Arial", sans-serif;
       }
 
+      @font-face {
+        font-family: 'EyesomeScript';
+        src: url('./fonts/Eyesome-Script.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      h1 {
+        font-family: 'EyesomeScript';
+        color: #685127;
+        font-weight: bold;
+        font-size: 60px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
       /* --- HERO --- */
       .hero {
         position: relative;
@@ -70,14 +86,8 @@
 
       /* --- POČÍTADLO --- */
       .countdown {
-        background: #f8f0e3;
-        padding: 80px 20px;
         text-align: center;
-      }
-
-      .countdown h2 {
-        margin-bottom: 40px;
-        font-size: clamp(2rem, 4vw, 3rem);
+        padding-bottom: 40px;
       }
 
       .countdown .boxes {
@@ -94,6 +104,7 @@
         flex: 1 1 100px;
         max-width: 150px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        color: #685127;
       }
 
       .countdown .box span {
@@ -117,7 +128,7 @@
           #ffffff 50%,
           #fadba9 100%
         );
-        padding: 100px 20px;
+        padding: 60px 20px;
         text-align: center;
         border-top: 5px solid #685127;
         border-bottom: 5px solid #685127;
@@ -385,32 +396,35 @@
     </style>
   </head>
   <body>
+
     <div class="hero hero-white">
       <img src="foto/FAVORIT.png" alt="Svadobný obrázok" />
     </div>
 
-    <div class="countdown">
-      <h2>Do našej svadby zostáva</h2>
-      <div class="boxes">
-        <div class="box">
-          <span id="days">0</span>
-          <small>Dní</small>
-        </div>
-        <div class="box">
-          <span id="hours">0</span>
-          <small>Hodín</small>
-        </div>
-        <div class="box">
-          <span id="minutes">0</span>
-          <small>Minút</small>
+    <div class="invite-section">
+
+      <h1>Do našej svadby zostáva</h1>
+      <div class="countdown">
+         <div class="boxes">
+          <div class="box">
+            <span id="days">0</span>
+            <small>dní</small>
+          </div>
+          <div class="box">
+            <span id="hours">0</span>
+            <small>hodín</small>
+          </div>
+          <div class="box">
+            <span id="minutes">0</span>
+            <small>minút</small>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="invite-section">
-      <h2 style="color: #685127; margin-bottom: 30px; font-weight: bold">
-        Plánujete prísť na hostinu?
-      </h2>
+       <p style=" padding-bottom: 20px; color: #685127; font-size:larger; font-style:italic">
+        Milí hostia, chceli by sme vás poprosiť o potvrdenie účasti a vyplnenie potrebných informácií do 31.03.2026.
+      </p>
+
       <a
         href="https://forms.gle/njdGcXNZVzwBo6KG8"
         target="_blank"
@@ -418,9 +432,7 @@
       >
         Potvrdiť účasť
       </a>
-      <p style="margin-top: 20px; color: #685127; font-size:larger; font-style:italic">
-        Prosíme o vyplnenie do 31.O3.2026
-      </p>
+     
     </div>
 
     <div class="info-section">
@@ -432,7 +444,7 @@
       <img src="foto/stredisko.png" alt="Stredisko Saleziáni" />
 
       <p>
-        Pri kostole je k dispozícii parkovanie na hokejbalovom ihrisku v&nbsp;areáli saleziánskeho strediska (3). Ďalšie voľné parkovanie je&nbsp;pri COOP Jednote (4), v uličke medzi Úradom práce a&nbsp;saleziánskym strediskom smerom ku Chemkostav aréne (5), prípadne pred OTP Bankou (6). Pozrite si mapku.
+        Pri kostole&nbsp;(1) je k dispozícii parkovanie na hokejbalovom ihrisku v&nbsp;areáli saleziánskeho strediska&nbsp;(3). Ďalšie voľné parkovanie je&nbsp;pri COOP Jednote&nbsp;(4), v uličke medzi Úradom práce a&nbsp;saleziánskym strediskom smerom ku Chemkostav aréne&nbsp;(5), prípadne pred OTP Bankou&nbsp;(6).
       </p>
 
       <div>
@@ -460,22 +472,28 @@
       </p>
 
       <img src="foto/hotel_glamour.png" alt="Hotel Glamour" />
-
+   
       <p>
-      Pri hoteli je voľné parkovanie priamo pri príjazdovej ceste po odbočení z hlavnej cesty.
+      Cesta na hotel trvá autom 14 minút.
       </p>
 
       <div>
         <iframe class="map-placeholder" style="border:none" src="https://mapy.com/s/delabahuje" width="400" height="280" frameborder="90"></iframe>
       </div>
+
+      <p>
+      Pri hoteli (1) je voľné parkovanie priamo popri príjazdovej ceste po odbočení z hlavnej cesty (2).
+      </p>
+
+      <div>
+      <iframe class="map-placeholder" style="border:none" src="https://mapy.com/s/jegasonofo" width="400" height="280" frameborder="90"></iframe>
+      </div>
     
     </div>
-
+    
     <div class="timeline-section">
-      <h2>Náš príbeh</h2>
-
+      <h1>Náš príbeh</h1>
       <div class="timeline">
-
         <div class="timeline-item left">
           <h4 class="timeline-date">25. 07. 2021</h4>
 
