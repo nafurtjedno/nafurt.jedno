@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>1.5 J+D=❤️</title>
+    <title>Nafurt jedno ❤️</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -50,8 +50,6 @@
        ak chceš vidieť kúsok animácie aj okolo neho */
     padding: 20px 0; 
 }
-
-
 
 /* Odstránime line-height: 0 z wrapperu, aby animácia pod obrázkom vynikla */
 .announcement-wrapper {
@@ -263,6 +261,26 @@
         z-index: 1;
       }
 
+      .timeline-date {
+        position: absolute;
+        top: 16px;
+        font-weight: bold;
+        white-space: nowrap;
+        color: #685127;
+      }
+
+      /* Left items → date on right side near center line */
+      .timeline-item.left .timeline-date {
+        right: -160px;
+        text-align: left;
+      }
+
+      /* Right items → date on left side near center line */
+      .timeline-item.right .timeline-date {
+        left: -160px;
+        text-align: right;
+      }
+
       .left {
         left: 0;
         text-align: right;
@@ -381,29 +399,27 @@
         Potvrdiť účasť
       </a>
       <p style="margin-top: 20px; color: #685127; font-size:larger; font-style:italic">
-        Prosíme o spätnú väzbu do 31.3.2026
+        Prosíme o vyplnenie do 31.O3.2026
       </p>
     </div>
 
     <div class="info-section">
       <h3>Svadobný obrad</h3>
       <p>
-        Svadobná svätá omša začína o <b>15:00</b> u saleziánov v Michalovciach
-        na ulici <b>Špitálska 15</b>.
+        Obrad sa začína o <b>15:00</b> v kostole Panny Márie, Pomocnice kresťanov - Saleziáni Michalovce, na ulici <b>Špitálska 15</b>.
       </p>
 
       <img src="foto/stredisko.png" alt="Stredisko Saleziáni" />
 
       <p>
-        Parkovať sa dá priamo v areáli na hokejbalovom ihrisku, alebo v
-        priľahlých uliciach pred strediskom a v okolí. Pozrite si mapku nižšie:
+        Pri kostole je k dispozícii parkovanie na hokejbalovom ihrisku v areáli saleziánskeho strediska (3). Ďalšie voľné parkovanie je pri COOP Jednote (4), v uličke medzi Úradom práce a saleziánskym strediskom smerom ku Chemkostav aréne (5), prípadne pred OTP Bankou (6). Pozrite si mapku.
       </p>
 
       <div>
         <iframe
           class="map-placeholder"
           style="border: none"
-          src="https://mapy.com/s/lagofebevo"
+          src="https://mapy.com/s/ladularute"
           width="400"
           height="280"
           frameborder="90"
@@ -421,94 +437,93 @@
       <h3>Svadobná hostina</h3>
       <p>
         Po svätej omši a gratuláciách sa spoločne presunieme do
-        <b>hotela Glamour na Šírave</b>, kde budeme pokračovať v oslavách až do
+        <b>hotela Glamour na Šírave</b>, na adrese <b>Kaluža 
+        744</b>, kde budeme pokračovať v oslavách až do
         skorého rána ;)
       </p>
 
       <img src="foto/hotel_glamour.png" alt="Hotel Glamour" />
+
+      <p>
+      Pri hoteli je voľné parkovanie priamo pri príjazdovej ceste po odbočení z hlavnej cesty.
+      </p>
+
+      <div>
+        <iframe class="map-placeholder" style="border:none" src="https://mapy.com/s/delabahuje" width="400" height="280" frameborder="90"></iframe>
+      </div>
+    
     </div>
 
     <div class="timeline-section">
       <h2>Náš príbeh</h2>
+
       <div class="timeline">
+
         <div class="timeline-item left">
+          <h4 class="timeline-date">25. 07. 2021</h4>
+
           <div class="content">
-            <img src="foto/o_nas (1).jpg" alt="Zoznámenie" />
-            <h4>Dátum / Rok</h4>
-            <p>
-              Tu napíš, ako ste sa spoznali alebo kedy padla prvá kosa na kameň.
-            </p>
+            <img src="foto/kuchyna.jpg" alt="Zoznámenie" />
+            <div class="timeline-item__text">
+              <h4>❓ Ako sme sa spoznali</h4>
+              <p>
+                Zoznámili sme sa na letnom tábore pri dobrovoľníctve. Dvaja východniari sa stretli na Záhorí.
+                Dodnes sa smejeme, že sme sa stretli práve v Kuchyni. Toto je naša prvá spoločná fotka spolu
+                s ostatnými animátormi.
+              </p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item right">
+           <h4 class="timeline-date">01. 10. 2021</h4>
+
           <div class="content">
-            <img src="foto/o_nas (2).JPEG" alt="Prvé rande" />
-            <h4>Dátum / Rok</h4>
-            <p>Krátky popis k vašej druhej dôležitej udalosti.</p>
+            <img src="foto/prverande.jpg" alt="Prvé rande" />
+            <div class="timeline-item__text">
+              <h4>🌄 Prvé rande</h4>
+              <p>Naša prvá spoločná fotka pri západe slnka na košickom sídlisku Heringeš. „A Janka, keď budeš cestovať z Bratislavy zo školy domov do Michaloviec, nezastavila by si sa v Košiciach?“ znela jedna z prvých nesmelých otázok v telefóne. A tak sa to začalo – stretávanie sa v Košiciach na stanici, prechádzky mestským parkom a sledovanie západov slnka na vyhliadkových miestach.</p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item left">
+           <h4 class="timeline-date">18. 11. 2021</h4>
+
           <div class="content">
-            <img src="foto/o_nas (3).JPEG" alt="Spoločné výlety" />
-            <h4>Dátum / Rok</h4>
-            <p>Napríklad vaša prvá spoločná dovolenka alebo spoločné hobby.</p>
+            <img src="foto/stvrtevyrocie.jpeg" alt="Spoločné výlety" />
+            <div class="timeline-item__text">
+              <h4>👣 A tak sme spolu začali chodiť</h4>
+              <p>Stretávať sa, spoznávať sa, cestovať cez celé Slovensko jeden za druhým a postupne spolu tráviť viac a viac času. Daniel sa presťahoval do Bratislavy a Janka skončila školu. Pozreli sme si Rím, Fatimu a Lisabon, kúpali sa v oceáne, išli lyžovať a oslávili štvrté výročie.</p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item right">
+          <h4 class="timeline-date">22. 12. 2024</h4>
+
           <div class="content">
-            <img src="foto/o_nas (4).jpeg" alt="Zásnuby" />
-            <h4>Dátum / Rok</h4>
-            <p>Ten moment, kedy sa "jedno" začalo meniť na "nafurt".</p>
+            <img src="foto/zasnuby.jpg" alt="Zásnuby" />
+            
+            <div class="timeline-item__text">
+              <h4>💍 Naše zásnuby</h4>
+              <p>Ešte malú chvíľu predtým sme si dali langoš s bryndzou a poriadnou nádielkou cibuľky. Janka netušila, čo ju o pár minút čaká. Daniel sa odhodlal a po rokoch spoločného vzťahu pokľakol v Bratislave na Františkánskom námestí – presne tam, kde Janku po prvýkrát chytil za ruku. Bolo to prekvapenie plné emócií, radosti a lásky. Do toho nám v pozadí hrala pieseň „Opri sa o mňa“.</p>
+            </div>
           </div>
         </div>
 
         <div class="timeline-item left">
-          <div class="content">
-            <img src="foto/o_nas (5).jpeg" alt="Naša spoločná fotka 5" />
-            <h4>Dátum / Rok</h4>
-            <p>
-              Tu môžeš doplniť ďalší dôležitý míľnik, napríklad spoločné
-              sťahovanie alebo prvé domáce zvieratko.
-            </p>
-          </div>
-        </div>
+           <h4 class="timeline-date">02. 02. 2026</h4>
 
-        <div class="timeline-item right">
           <div class="content">
-            <img src="foto/o_nas (6).jpeg" alt="Naša spoločná fotka 6" />
-            <h4>Dátum / Rok</h4>
-            <p>
-              Ďalší pekný zážitok, možno z nejakej oslavy alebo výletu s
-              rodinou.
-            </p>
+            <img src="foto/obrucky.jpeg" alt="Obrúčky" />
+            
+            <div class="timeline-item__text">
+              <h4>💍 Vyrobili sme si obrúčky</h4>
+              <p> </p>
+            </div>
           </div>
         </div>
-
-        <div class="timeline-item left">
-          <div class="content">
-            <img src="foto/o_nas (7).jpeg" alt="Naša spoločná fotka 7" />
-            <h4>Dátum / Rok</h4>
-            <p>
-              Predposledný kúsok skladačky vášho príbehu pred tým, než prišlo k
-              veľkému rozhodnutiu.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item right">
-          <div class="content">
-            <img src="foto/o_nas (1).jpeg" alt="Naša spoločná fotka 8" />
-            <h4>Dátum / Rok</h4>
-            <p>
-              Záver časovej osi, ktorý nás privádza až k dnešnému dňu a
-              prípravám na našu svadbu.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
 
     <footer>
