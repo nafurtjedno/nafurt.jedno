@@ -247,6 +247,11 @@
         width: 50%;
       }
 
+      .timeline-item__text {
+        text-align: justify;
+      }
+
+
       /* Krúžok na čiare */
       .timeline-item::after {
         content: "";
@@ -278,7 +283,7 @@
       /* Right items → date on left side near center line */
       .timeline-item.right .timeline-date {
         left: -160px;
-        text-align: right;
+        text-align: left;
       }
 
       .left {
@@ -314,33 +319,37 @@
       }
 
       /* Definícia animácie gradientu */
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+          100% {
+              background-position: 0% 50%;
+          }
+      }
 
       /* Responzivita pre mobily */
       @media screen and (max-width: 768px) {
         .timeline::after {
           left: 31px;
         }
+
         .timeline-item {
           width: 100%;
           padding-left: 70px;
           padding-right: 25px;
           text-align: left;
+          left: 0;
         }
+
         .timeline-item::after {
           left: 21px;
           right: auto;
         }
+
         .left {
           left: 0;
         }
@@ -349,15 +358,15 @@
         }
 
          /* FIX DATE POSITION */
-        .timeline-date {
-          position: relative;   /* remove absolute layout */
-          left: 0;
-          right: 0;
-          top: 0;
+          .timeline-date {
+          position: static;   /* remove absolute */
           display: block;
-          margin-bottom: 10px;  /* space above image */
+          margin-bottom: 10px;
           text-align: left;
-         }
+
+          left: auto;         /* reset desktop offsets */
+          right: auto;
+        }
       }
 
       /* --- FOOTER --- */
@@ -423,7 +432,7 @@
       <img src="foto/stredisko.png" alt="Stredisko Saleziáni" />
 
       <p>
-        Pri kostole je k dispozícii parkovanie na hokejbalovom ihrisku v areáli saleziánskeho strediska (3). Ďalšie voľné parkovanie je pri COOP Jednote (4), v uličke medzi Úradom práce a saleziánskym strediskom smerom ku Chemkostav aréne (5), prípadne pred OTP Bankou (6). Pozrite si mapku.
+        Pri kostole je k dispozícii parkovanie na hokejbalovom ihrisku v&nbsp;areáli saleziánskeho strediska (3). Ďalšie voľné parkovanie je&nbsp;pri COOP Jednote (4), v uličke medzi Úradom práce a&nbsp;saleziánskym strediskom smerom ku Chemkostav aréne (5), prípadne pred OTP Bankou (6). Pozrite si mapku.
       </p>
 
       <div>
@@ -447,10 +456,7 @@
 
       <h3>Svadobná hostina</h3>
       <p>
-        Po svätej omši a gratuláciách sa spoločne presunieme do
-        <b>hotela Glamour na Šírave</b>, na adrese <b>Kaluža 
-        744</b>, kde budeme pokračovať v oslavách až do
-        skorého rána ;)
+        Po svätej omši a gratuláciách sa spoločne presunieme do&nbsp;<b>hotela Glamour na Šírave</b>, na&nbsp;adrese <b>Kaluža 744</b>, kde budeme pokračovať v oslavách až do skorého rána ;)
       </p>
 
       <img src="foto/hotel_glamour.png" alt="Hotel Glamour" />
@@ -478,9 +484,9 @@
             <div class="timeline-item__text">
               <h4>❓ Ako sme sa spoznali</h4>
               <p>
-                Zoznámili sme sa na letnom tábore pri dobrovoľníctve. Dvaja východniari sa stretli na Záhorí.
+                Zoznámili sme sa na letnom tábore pri&nbsp;dobrovoľníctve. Dvaja východniari sa stretli na&nbsp;Záhorí.
                 Dodnes sa smejeme, že sme sa stretli práve v Kuchyni. Toto je naša prvá spoločná fotka spolu
-                s ostatnými animátormi.
+                s&nbsp;ostatnými animátormi.
               </p>
             </div>
           </div>
@@ -493,7 +499,7 @@
             <img src="foto/prverande.jpg" alt="Prvé rande" />
             <div class="timeline-item__text">
               <h4>🌄 Prvé rande</h4>
-              <p>Naša prvá spoločná fotka pri západe slnka na košickom sídlisku Heringeš. „A Janka, keď budeš cestovať z Bratislavy zo školy domov do Michaloviec, nezastavila by si sa v Košiciach?“ znela jedna z prvých nesmelých otázok v telefóne. A tak sa to začalo – stretávanie sa v Košiciach na stanici, prechádzky mestským parkom a sledovanie západov slnka na vyhliadkových miestach.</p>
+              <p>Naša prvá spoločná fotka pri západe slnka na&nbsp;košickom sídlisku Heringeš. „A Janka, keď budeš cestovať z Bratislavy zo školy domov do Michaloviec, nezastavila by si sa v Košiciach?“ znela jedna z&nbsp;prvých nesmelých otázok v telefóne. A tak sa to začalo – stretávanie sa v Košiciach na stanici, prechádzky mestským parkom a&nbsp;sledovanie západov slnka na vyhliadkových miestach.</p>
             </div>
           </div>
         </div>
@@ -505,7 +511,7 @@
             <img src="foto/stvrtevyrocie.jpeg" alt="Spoločné výlety" />
             <div class="timeline-item__text">
               <h4>👣 A tak sme spolu začali chodiť</h4>
-              <p>Stretávať sa, spoznávať sa, cestovať cez celé Slovensko jeden za druhým a postupne spolu tráviť viac a viac času. Daniel sa presťahoval do Bratislavy a Janka skončila školu. Pozreli sme si Rím, Fatimu a Lisabon, kúpali sa v oceáne, išli lyžovať a oslávili štvrté výročie.</p>
+              <p>Stretávať sa, spoznávať sa, cestovať cez celé Slovensko jeden za druhým a postupne&nbsp;spolu tráviť viac a viac času. Daniel sa presťahoval do Bratislavy a&nbsp;Janka skončila školu. Pozreli sme si Rím, Fatimu a&nbsp;Lisabon, kúpali sa v oceáne, išli lyžovať a&nbsp;oslávili štvrté výročie.</p>
             </div>
           </div>
         </div>
@@ -518,7 +524,7 @@
             
             <div class="timeline-item__text">
               <h4>💍 Naše zásnuby</h4>
-              <p>Ešte malú chvíľu predtým sme si dali langoš s bryndzou a poriadnou nádielkou cibuľky. Janka netušila, čo ju o pár minút čaká. Daniel sa odhodlal a po rokoch spoločného vzťahu pokľakol v Bratislave na Františkánskom námestí – presne tam, kde Janku po prvýkrát chytil za ruku. Bolo to prekvapenie plné emócií, radosti a lásky. Do toho nám v pozadí hrala pieseň „Opri sa o mňa“.</p>
+              <p>Ešte malú chvíľu predtým sme si dali langoš s&nbsp;bryndzou a poriadnou nádielkou cibuľky. Janka netušila, čo ju o pár minút čaká. Daniel sa odhodlal a&nbsp;po rokoch spoločného vzťahu pokľakol v Bratislave na&nbsp;Františkánskom námestí – presne tam, kde Janku po prvýkrát chytil za ruku. Bolo to prekvapenie. Do&nbsp;toho nám v pozadí hrala pieseň „Opri sa o&nbsp;mňa“.</p>
             </div>
           </div>
         </div>
