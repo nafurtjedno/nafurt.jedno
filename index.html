@@ -260,8 +260,20 @@
       }
 
       .timeline-item__text {
-        text-align: justify;
+        text-align: justify; /* Zarovná text presne pod ľavý okraj obrázka */
+        padding: 0;       /* Odstráni prípadné bočné medzery, aby text lícoval s hranou fotky */
+        margin-top: 15px; /* Jemná medzera medzi fotkou a textom */
       }
+
+      .main-img {
+    display: block;      /* Zabezpečí, že sa obrázok správa ako blok */
+    width: 100%;         /* Roztiahne obrázok na celú šírku rodičovského elementu (section) */
+    max-width: 100%;     /* Poistka, aby nepretiekol */
+    height: auto;        /* Zachová pomer strán, aby sa fotka nedeformovala */
+    margin-bottom: 20px; /* Medzera medzi obrázkom a textom/mapou */
+    
+    /* Odstránili sme všetky border, shadow a efekty, ako si si prial */
+}
 
 
       /* Krúžok na čiare */
@@ -315,13 +327,18 @@
         padding: 20px;
         background-color: #f8f0e3;
         border-radius: 12px;
+        display: inline-block; /* Bublina sa prispôsobí obsahu */
+        width: 100%;           /* Ale na mobile vyplní priestor */
+        text-align: left;      /* Poistka pre zarovnanie obsahu */
       }
 
       .content img {
-        width: 100%;
-        max-width: 300px;
+        width: 100%;       /* Obrázok vyplní celú šírku bubliny */
+        max-width: 100%;    /* Zrušíme to obmedzenie na 300px */
+        height: auto;
         border-radius: 8px;
         margin-bottom: 15px;
+        display: block;
       }
 
       .content h4 {
@@ -500,7 +517,7 @@
           <h4 class="timeline-date">25. 07. 2021</h4>
 
           <div class="content">
-            <img src="foto/kuchyna.jpg" alt="Zoznámenie" />
+            <img src="foto/kuchyna.jpg" alt="Zoznámenie" class="main-img"/>
             <div class="timeline-item__text">
               <h4>❓ Ako sme sa spoznali</h4>
               <p>
@@ -516,7 +533,7 @@
            <h4 class="timeline-date">01. 10. 2021</h4>
 
           <div class="content">
-            <img src="foto/prverande.jpg" alt="Prvé rande" />
+            <img src="foto/prverande.jpg" alt="Prvé rande" class="main-img"/>
             <div class="timeline-item__text">
               <h4>🌄 Prvé rande</h4>
               <p>Naša prvá spoločná fotka pri západe slnka na&nbsp;košickom sídlisku Heringeš. „A Janka, keď budeš cestovať z Bratislavy zo školy domov do Michaloviec, nezastavila by si sa v Košiciach?“ znela jedna z&nbsp;prvých nesmelých otázok v telefóne. A tak sa to začalo – stretávanie sa v Košiciach na stanici, prechádzky mestským parkom a&nbsp;sledovanie západov slnka na vyhliadkových miestach.</p>
@@ -528,7 +545,7 @@
            <h4 class="timeline-date">18. 11. 2021</h4>
 
           <div class="content">
-            <img src="foto/stvrtevyrocie.jpeg" alt="Spoločné výlety" />
+            <img src="foto/stvrtevyrocie.jpeg" alt="Spoločné výlety" class="main-img" />
             <div class="timeline-item__text">
               <h4>👣 A tak sme spolu začali chodiť</h4>
               <p>Stretávať sa, spoznávať sa, cestovať cez celé Slovensko jeden za druhým a postupne&nbsp;spolu tráviť viac a viac času. Daniel sa presťahoval do Bratislavy a&nbsp;Janka skončila školu. Pozreli sme si Rím, Fatimu a&nbsp;Lisabon, kúpali sa v oceáne, išli lyžovať a&nbsp;oslávili štvrté výročie.</p>
@@ -540,7 +557,7 @@
           <h4 class="timeline-date">22. 12. 2024</h4>
 
           <div class="content">
-            <img src="foto/zasnuby.jpg" alt="Zásnuby" />
+            <img src="foto/zasnuby.jpg" alt="Zásnuby" class="main-img" />
             
             <div class="timeline-item__text">
               <h4>💍 Naše zásnuby</h4>
@@ -553,11 +570,11 @@
            <h4 class="timeline-date">02. 02. 2026</h4>
 
           <div class="content">
-            <img src="foto/obrucky.jpeg" alt="Obrúčky" />
+            <img src="foto/obrucky.jpeg" alt="Obrúčky" class="main-img" />
             
             <div class="timeline-item__text">
               <h4>💍 Vyrobili sme si obrúčky</h4>
-              <p> </p>
+              <p> Vďaka tipu od známych z párových stretiek v UPC sme sa odhodlali na niečo netradičné – vyrobiť si obrúčky vlastnými rukami. Bol to čarovný deň v dielni, počas ktorého sme sledovali, ako sa surový kus zlata pod naším úsilím mení na dva symboly nášho sľubu.</p>
             </div>
           </div>
         </div>
