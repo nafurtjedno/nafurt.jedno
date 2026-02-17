@@ -344,6 +344,12 @@
         display: block;
       }
 
+      .content a {
+        color: #685127;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
       .content h4 {
         margin-top: 0;
         color: #685127;
@@ -390,7 +396,7 @@
         }
 
          /* FIX DATE POSITION */
-          .timeline-date {
+        .timeline-date {
           position: static;   /* remove absolute */
           display: block;
           margin-bottom: 10px;
@@ -403,7 +409,10 @@
 
       .small-gallery {
         padding: 40px 20px;
+        padding-bottom: 0;
         text-align: center;
+        background-color: #685127;
+        color: white;
       }
 
       .small-gallery h2 {
@@ -452,6 +461,61 @@
         opacity: 1;
       }
 
+      .fun-facts-section {
+        text-align: center;
+        margin: 80px 0;
+      }
+
+      .btn-funfacts {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        margin: 50px;
+        padding: 20px 50px;
+        background-color: white; /* Tvoja hlavná hnedá */
+        color: #685127;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      /* Efekt pri prejdení myšou */
+      .btn-funfacts:hover {
+        background-color: #ffe4e1;
+        transform: scale(1.1); /* Ešte viac sa zväčší */
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        color: #4a3a1c;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .fact-block {
+        margin: 50px 0;
+      }
+
+      .fact-block img {
+        max-width: 300px;
+        width: 100%;
+        border-radius: 10px;
+        margin: 15px 0;
+      }
+
+      .childhood-gallery {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+
+      .childhood-gallery img {
+        max-width: 220px;
+      }
 
       /* --- FOOTER --- */
       footer {
@@ -587,7 +651,7 @@
             <div class="timeline-item__text">
               <h4>❓ Ako sme sa spoznali</h4>
               <p>
-                Zoznámili sme sa na letnom tábore pri&nbsp;dobrovoľníctve. Dvaja východniari sa stretli na&nbsp;Záhorí.
+                Zoznámili sme sa na letnom tábore cez&nbsp;<a href="https://vides.sk/">VIDES</a> dobrovoľníctvo. Dvaja východniari sa tak stretli na letnom tábore pre deti na&nbsp;Záhorí.
                 Dodnes sa smejeme, že sme sa stretli práve v Kuchyni. Toto je naša prvá spoločná fotka spolu
                 s&nbsp;ostatnými animátormi.
               </p>
@@ -602,7 +666,7 @@
             <img src="foto/prverande.jpg" alt="Prvé rande" class="main-img"/>
             <div class="timeline-item__text">
               <h4>🌄 Prvé rande</h4>
-              <p>„A Janka, keď budeš cestovať z Bratislavy zo školy domov do Michaloviec, nezastavila by si sa v Košiciach?“ znela jedna z&nbsp;prvých nesmelých otázok v telefóne. A tak sa to začalo – stretávanie sa v Košiciach na stanici, prechádzky mestským parkom a&nbsp;sledovanie západov slnka na vyhliadkových miestach. Fotka je zo sledovania západu slnka na&nbsp;košickom sídlisku Heringeš.</p>
+              <p>„A Janka, keď budeš cestovať z Bratislavy zo školy domov do Michaloviec, nezastavila by si sa v Košiciach?“ znela jedna z&nbsp;prvých nesmelých otázok v telefóne. Začalo sa stretávanie sa v Košiciach na vlakovej stanici, prechádzky mestským parkom a&nbsp;sledovanie západov slnka na vyhliadkových miestach. Fotka je zo sledovania západu slnka na&nbsp;košickom sídlisku Heringeš.</p>
             </div>
           </div>
         </div>
@@ -665,7 +729,7 @@
             
             <div class="timeline-item__text">
               <h4>💍 Vyrobili sme si obrúčky</h4>
-              <p> Vďaka tipu od známych z párových stretiek v UPC sme sa odhodlali na niečo netradičné – vyrobiť si obrúčky vlastnými rukami. Bol to čarovný deň v dielni, počas ktorého sme sledovali, ako sa surový kus zlata pod naším úsilím mení na dva symboly nášho sľubu.</p>
+              <p> Vďaka tipu od priateľov z párových stretiek v <a href="https://www.upcba.sk/">UPeCe</a> sme sa odhodlali na niečo netradičné – vyrobiť si obrúčky vlastnými rukami. Bol to čarovný deň v dielni, počas ktorého sme sledovali, ako sa surový kus zlata pod naším úsilím mení na dva symboly nášho sľubu.</p>
             </div>
           </div>
         </div>
@@ -673,7 +737,7 @@
     </div>
 
     <div class="small-gallery">
-      <h1>Naša mini galéria</h1>
+      <h1 style="color: white; padding: 20px;">Naša mini galéria</h1>
       <div class="gallery-grid">
         <div class="gallery-item">
           <img src="foto/valne2015.jpg" alt="Valné">
@@ -811,11 +875,69 @@
         <div class="gallery-item">
             <img src="foto/reserve.jpeg" alt="Dano">
             <div class="overlay">
-              <p>Dámy, lepšie by som to nepovedala. Tento pán je už rezervovaný! </p>
+              <p>Dámy, lepšie by som to nepovedala. Tento pán je už žiaľ rezervovaný! </p>
             </div>
           </div>
         </div>
 
+        <button class="btn-funfacts" id="toggleFactsBtn">Tak vy ešte nemáte dosť?</button>
+      </div>
+
+      <div class="fun-facts-section" id="funFacts" class="hidden">
+          <h1>Fun facts</h1>
+
+          <!-- 2016 – first meeting -->
+          <div class="fact-block">
+            <h3>Rok 2016 – stretli sme sa (a ani sme o tom nevedeli)</h3>
+            <img src="images/2016-akcia.jpg" alt="Naša fotografia z roku 2016">
+            <p>
+              Táto fotka je z akcie v roku 2016. Vtedy sme sa stretli prvýkrát,
+              no ešte sme netušili, že raz budeme spolu.
+            </p>
+          </div>
+
+          <!-- Dating song -->
+          <div class="fact-block">
+            <h3>Pesnička nášho začiatku</h3>
+            <p>
+              Keď sme spolu začali chodiť, všade hrala
+              <strong>Easy On Me – Adele (2021)</strong>.
+              Tento hit je už navždy spojený s naším začiatkom.
+            </p>
+          </div>
+
+          <!-- Full moon -->
+          <div class="fact-block">
+            <h3>18.11.2021 🌕</h3>
+            <p>
+              V deň, ktorý je pre nás dôležitý, bol spln.
+              Úplnok je symbolom nových začiatkov – a pre nás to platilo dvojnásobne.
+            </p>
+          </div>
+
+          <!-- Childhood photos -->
+          <div class="fact-block">
+            <h3>Naše detstvo</h3>
+            <div class="childhood-gallery">
+              <div>
+                <img src="images/ona-dieta.jpg" alt="Nevesta ako dieťa s rodičmi">
+                <p>Ona s rodičmi</p>
+              </div>
+              <div>
+                <img src="images/on-dieta.jpg" alt="Ženích ako dieťa s rodičmi">
+                <p>On s rodičmi</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Work and hobbies -->
+          <div class="fact-block">
+            <h3>Kde sme dnes</h3>
+            <p>
+              Dnes pracujeme v oblastiach, ktoré nás bavia a napĺňajú.
+              Vo voľnom čase radi cestujeme, športujeme a trávime čas s rodinou a priateľmi.
+            </p>
+          </div>
       </div>
 
     <footer>
@@ -846,5 +968,16 @@
       setInterval(updateCountdown, 1000);
       updateCountdown();
     </script>
+
+    <script>
+      const button = document.getElementById("toggleFactsBtn");
+      const facts = document.getElementById("funFacts");
+
+      button.addEventListener("click", () => {
+        facts.classList.remove("hidden");   // show section
+        button.style.display = "none";     // hide button permanently
+      });
+    </script>
+
   </body>
 </html>
