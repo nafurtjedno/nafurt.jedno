@@ -1,0 +1,604 @@
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            font-family: "Arial", sans-serif;
+        }
+
+        @font-face {
+            font-family: 'EyesomeScript';
+            src: url('./fonts/Eyesome-Script.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h1 {
+            font-family: 'EyesomeScript';
+            color: #685127;
+            font-weight: bold;
+            font-size: 60px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .hero img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+                /* Upravená úvodná sekcia s animovaným pozadím */
+        .hero-white {
+            width: 100%;
+            /* Tvoje definované farby */
+            background: linear-gradient(-45deg, #000000, #D9D9D9, #685127, #8884FF);
+            background-size: 400% 400%;
+            animation: gradient 13s ease infinite;
+            
+            /* Zabezpečíme, aby obrázok oznámenia nebol "prilepený" na okrajoch, 
+                ak chceš vidieť kúsok animácie aj okolo neho */
+            padding: 20px 0; 
+        }
+
+        /* Odstránime line-height: 0 z wrapperu, aby animácia pod obrázkom vynikla */
+        .announcement-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .full-width-img {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+            display: block;
+            /* Ak má tvoje oznamko priehľadné pozadie (PNG), 
+                animácia bude presvitať aj cez neho. 
+                Ak je oznamko biele, bude to vyzerať ako pekný rámik. */
+        }
+
+        /* --- POČÍTADLO --- */
+        .countdown {
+            text-align: center;
+            padding-bottom: 40px;
+        }
+
+        .countdown .boxes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown .box {
+            background: #ffffff;
+            padding: 30px 20px;
+            border-radius: 12px;
+            flex: 1 1 100px;
+            max-width: 150px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            color: #685127;
+        }
+
+        .countdown .box span {
+            display: block;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+        }
+
+        .countdown .box small {
+            display: block;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* --- TLAČIDLO PRE POZVANÝCH (UPRAVENÉ) --- */
+        .invite-section {
+            /* Poriadne farebný gradient (kombinácia svadobnej ružovej a zlatej) */
+            background: linear-gradient(
+            135deg,
+            #f1c8c4 0%,
+            #ffffff 50%,
+            #fadba9 100%
+            );
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 2px solid #685127;
+            border-bottom: 2px solid #685127;
+        }
+
+        .invite-section .btn-invite {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            padding: 20px 50px;
+            background-color: #685127; /* Tvoja hlavná hnedá */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+
+            /* Animácia pumpujúceho srdca */
+            animation: heartbeat 5s infinite ease-in-out;
+        }
+
+        /* Efekt pri prejdení myšou */
+        .invite-section .btn-invite:hover {
+            background-color: #4a3a1c;
+            transform: scale(1.1); /* Ešte viac sa zväčší */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            color: #ffe4e1;
+        }
+
+        /* Definícia animácie heartbeat */
+        @keyframes heartbeat {
+            0% {
+            transform: scale(1);
+            }
+            15% {
+            transform: scale(1.05);
+            }
+            30% {
+            transform: scale(1);
+            }
+            45% {
+            transform: scale(1.1);
+            }
+            60% {
+            transform: scale(1);
+            }
+        }
+
+        /* --- SEKCE DETAILOV (OBRAD A HOSTINA) --- */
+        .info-section {
+            background: #685127; /* tvoja pôvodná farba */
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 2px solid #685127;
+            border-bottom: 2px solid #685127;
+        }
+
+        .info-section h3 {
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .info-section img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .info-section p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 800px;
+            margin: 15px auto;
+            line-height: 1.6;
+        }
+
+        /* Miesto pre mapu */
+        .map-placeholder {
+            background: #e5e5e5;
+            color: #333;
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        /* --- ČASOVÁ OS (TIMELINE) --- */
+        .timeline-section {
+            padding-top: 60px;
+            padding-bottom: 20px;
+            background-color: #ffffff;
+        }
+
+        .timeline-section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Stredová čiara */
+        .timeline::after {
+            content: "";
+            position: absolute;
+            width: 4px;
+            background-color: #685127;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item__text {
+            text-align: justify; /* Zarovná text presne pod ľavý okraj obrázka */
+            padding: 0;       /* Odstráni prípadné bočné medzery, aby text lícoval s hranou fotky */
+            margin-top: 15px; /* Jemná medzera medzi fotkou a textom */
+        }
+
+        .main-img {
+            display: block;      /* Zabezpečí, že sa obrázok správa ako blok */
+            width: 100%;         /* Roztiahne obrázok na celú šírku rodičovského elementu (section) */
+            max-width: 100%;     /* Poistka, aby nepretiekol */
+            height: auto;        /* Zachová pomer strán, aby sa fotka nedeformovala */
+            margin-bottom: 20px; /* Medzera medzi obrázkom a textom/mapou */
+            
+            /* Odstránili sme všetky border, shadow a efekty, ako si si prial */
+        }
+
+
+        /* Krúžok na čiare */
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid #685127;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 16px;
+            font-weight: bold;
+            white-space: nowrap;
+            color: #685127;
+        }
+
+        /* Left items → date on right side near center line */
+        .timeline-item.left .timeline-date {
+            right: -160px;
+            text-align: left;
+        }
+
+        /* Right items → date on left side near center line */
+        .timeline-item.right .timeline-date {
+            left: -160px;
+            text-align: left;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+        .right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #f8f0e3;
+            border-radius: 12px;
+            display: inline-block; /* Bublina sa prispôsobí obsahu */
+            width: 100%;           /* Ale na mobile vyplní priestor */
+            text-align: left;      /* Poistka pre zarovnanie obsahu */
+        }
+
+        .content img {
+            width: 100%;       /* Obrázok vyplní celú šírku bubliny */
+            max-width: 100%;    /* Zrušíme to obmedzenie na 300px */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .content a {
+            color: #685127;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .content h4 {
+            margin-top: 0;
+            color: #685127;
+            font-weight: bold;
+        }
+
+        /* Definícia animácie gradientu */
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Responzivita pre mobily */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+            left: 31px;
+            }
+
+            .timeline-item {
+            width: 100%;
+            padding-left: 70px;
+            padding-right: 25px;
+            text-align: left;
+            left: 0;
+            }
+
+            .timeline-item::after {
+            left: 21px;
+            right: auto;
+            }
+
+            .left {
+            left: 0;
+            }
+            .right {
+            left: 0;
+            }
+
+            /* FIX DATE POSITION */
+            .timeline-date {
+            position: static;   /* remove absolute */
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+
+            left: auto;         /* reset desktop offsets */
+            right: auto;
+            }
+        }
+
+        .small-gallery {
+            padding: 40px 20px;
+            padding-bottom: 0;
+            text-align: center;
+            background-color: #685127;
+            color: white;
+        }
+
+        .small-gallery h2 {
+            margin-bottom: 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .fun-facts-section {
+            text-align: center;
+            padding: 60px 0;
+            /* Poriadne farebný gradient (kombinácia svadobnej ružovej a zlatej) */
+            background: linear-gradient(
+            135deg,
+            #f1c8c4 0%,
+            #ffffff 50%,
+            #fadba9 100%
+            );
+        }
+
+        .fun-facts-section h3 {
+            color: #685127;
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .btn-funfacts {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            margin: 50px;
+            padding: 20px 50px;
+            background-color: white; /* Tvoja hlavná hnedá */
+            color: #685127;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-funfacts a {
+            color: #685127;
+            text-decoration: none;
+        }
+
+        /* Efekt pri prejdení myšou */
+        .btn-funfacts:hover {
+            background-color: #ffe4e1;
+            transform: scale(1.1); /* Ešte viac sa zväčší */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            color: #4a3a1c;
+        }
+
+        .fact-block {
+            margin: 50px 0;
+        }
+
+        .fact-block img {
+            max-width: 300px;
+            width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .childhood-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .childhood-gallery img {
+            max-width: 220px;
+        }
+
+        .fun-facts-section h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .fact-block {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            text-align: center;
+        }
+
+        .fact-block a {
+            color: #685127;
+            text-decoration: none;
+        }
+
+        .fact-block img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            margin: 1rem 0;
+        }
+
+        .fact-block iframe {
+            width: 100%;
+            max-width: 560px;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+
+        .btn-back {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            margin: 50px;
+            padding: 20px 50px;
+            background-color: #685127; /* Tvoja hlavná hnedá */
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-back a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Efekt pri prejdení myšou */
+        .btn-back:hover {
+            background-color: #4a3a1c;
+            transform: scale(1.1); /* Ešte viac sa zväčší */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            color: #ffe4e1;
+        }
+
+        .main-footer {
+            background: #685127;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .main-footer a {
+            color: #ffe4e1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .fun-footer {
+            background: #ffe4e1;
+            color: #685127;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .fun-footer a {
+            color: #685127;
+            text-decoration: none;
+            font-weight: bold;
+        }

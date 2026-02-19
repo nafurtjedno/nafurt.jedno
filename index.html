@@ -4,537 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Nafurt jedno ❤️</title>
+    <link rel="icon" type="image/png" href="foto/favicon.png">
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="foto/favicon.png">
-
-    <style>
-      body, html 
-      {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        scroll-behavior: smooth;
-        font-family: "Arial", sans-serif;
-      }
-
-      @font-face {
-        font-family: 'EyesomeScript';
-        src: url('./fonts/Eyesome-Script.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-      }
-
-      h1 {
-        font-family: 'EyesomeScript';
-        color: #685127;
-        font-weight: bold;
-        font-size: 60px;
-        margin-bottom: 30px;
-        text-align: center;
-      }
-
-      /* --- HERO --- */
-      .hero {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #fff;
-        overflow: hidden;
-      }
-
-      .hero img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-      }
-
-            /* Upravená úvodná sekcia s animovaným pozadím */
-      .hero-white {
-          width: 100%;
-          /* Tvoje definované farby */
-          background: linear-gradient(-45deg, #000000, #D9D9D9, #685127, #8884FF);
-          background-size: 400% 400%;
-          animation: gradient 13s ease infinite;
-          
-          /* Zabezpečíme, aby obrázok oznámenia nebol "prilepený" na okrajoch, 
-            ak chceš vidieť kúsok animácie aj okolo neho */
-          padding: 20px 0; 
-      }
-
-      /* Odstránime line-height: 0 z wrapperu, aby animácia pod obrázkom vynikla */
-      .announcement-wrapper {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-      }
-
-      .full-width-img {
-          width: 100%;
-          max-width: 1200px;
-          height: auto;
-          display: block;
-          /* Ak má tvoje oznamko priehľadné pozadie (PNG), 
-            animácia bude presvitať aj cez neho. 
-            Ak je oznamko biele, bude to vyzerať ako pekný rámik. */
-      }
-
-      /* --- POČÍTADLO --- */
-      .countdown {
-        text-align: center;
-        padding-bottom: 40px;
-      }
-
-      .countdown .boxes {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .countdown .box {
-        background: #ffffff;
-        padding: 30px 20px;
-        border-radius: 12px;
-        flex: 1 1 100px;
-        max-width: 150px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        color: #685127;
-      }
-
-      .countdown .box span {
-        display: block;
-        font-size: clamp(2rem, 5vw, 3rem);
-        font-weight: bold;
-      }
-
-      .countdown .box small {
-        display: block;
-        font-size: 1rem;
-        color: #666;
-      }
-
-      /* --- TLAČIDLO PRE POZVANÝCH (UPRAVENÉ) --- */
-      .invite-section {
-        /* Poriadne farebný gradient (kombinácia svadobnej ružovej a zlatej) */
-        background: linear-gradient(
-          135deg,
-          #f1c8c4 0%,
-          #ffffff 50%,
-          #fadba9 100%
-        );
-        padding: 60px 20px;
-        text-align: center;
-        border-top: 2px solid #685127;
-        border-bottom: 2px solid #685127;
-      }
-
-      .invite-section .btn-invite {
-        font-size: clamp(1.5rem, 3vw, 2.2rem);
-        padding: 20px 50px;
-        background-color: #685127; /* Tvoja hlavná hnedá */
-        color: white;
-        border: none;
-        border-radius: 50px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-
-        /* Animácia pumpujúceho srdca */
-        animation: heartbeat 5s infinite ease-in-out;
-      }
-
-      /* Efekt pri prejdení myšou */
-      .invite-section .btn-invite:hover {
-        background-color: #4a3a1c;
-        transform: scale(1.1); /* Ešte viac sa zväčší */
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        color: #ffe4e1;
-      }
-
-      /* Definícia animácie heartbeat */
-      @keyframes heartbeat {
-        0% {
-          transform: scale(1);
-        }
-        15% {
-          transform: scale(1.05);
-        }
-        30% {
-          transform: scale(1);
-        }
-        45% {
-          transform: scale(1.1);
-        }
-        60% {
-          transform: scale(1);
-        }
-      }
-
-      /* --- SEKCE DETAILOV (OBRAD A HOSTINA) --- */
-      .info-section {
-        background: #685127; /* tvoja pôvodná farba */
-        color: white;
-        padding: 80px 20px;
-        text-align: center;
-        border-top: 2px solid #685127;
-        border-bottom: 2px solid #685127;
-      }
-
-      .info-section h3 {
-        margin-bottom: 20px;
-        font-size: clamp(1.5rem, 3vw, 2.5rem);
-      }
-
-      .info-section img {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        margin: 25px 0;
-        border-radius: 8px;
-      }
-
-      .info-section p {
-        font-size: clamp(1rem, 2vw, 1.2rem);
-        max-width: 800px;
-        margin: 15px auto;
-        line-height: 1.6;
-      }
-
-      /* Miesto pre mapu */
-      .map-placeholder {
-        background: #e5e5e5;
-        color: #333;
-        width: 100%;
-        max-width: 800px;
-        height: 300px;
-        margin: 30px auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 8px;
-      }
-
-      /* --- ČASOVÁ OS (TIMELINE) --- */
-      .timeline-section {
-        padding-top: 60px;
-        padding-bottom: 20px;
-        background-color: #ffffff;
-      }
-
-      .timeline-section h2 {
-        text-align: center;
-        margin-bottom: 50px;
-        font-size: clamp(2rem, 4vw, 3rem);
-      }
-
-      .timeline {
-        position: relative;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-
-      /* Stredová čiara */
-      .timeline::after {
-        content: "";
-        position: absolute;
-        width: 4px;
-        background-color: #685127;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        margin-left: -2px;
-      }
-
-      .timeline-item {
-        padding: 10px 40px;
-        position: relative;
-        width: 50%;
-      }
-
-      .timeline-item__text {
-        text-align: justify; /* Zarovná text presne pod ľavý okraj obrázka */
-        padding: 0;       /* Odstráni prípadné bočné medzery, aby text lícoval s hranou fotky */
-        margin-top: 15px; /* Jemná medzera medzi fotkou a textom */
-      }
-
-      .main-img {
-        display: block;      /* Zabezpečí, že sa obrázok správa ako blok */
-        width: 100%;         /* Roztiahne obrázok na celú šírku rodičovského elementu (section) */
-        max-width: 100%;     /* Poistka, aby nepretiekol */
-        height: auto;        /* Zachová pomer strán, aby sa fotka nedeformovala */
-        margin-bottom: 20px; /* Medzera medzi obrázkom a textom/mapou */
-        
-        /* Odstránili sme všetky border, shadow a efekty, ako si si prial */
-      }
-
-
-      /* Krúžok na čiare */
-      .timeline-item::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        right: -10px;
-        background-color: white;
-        border: 4px solid #685127;
-        top: 20px;
-        border-radius: 50%;
-        z-index: 1;
-      }
-
-      .timeline-date {
-        position: absolute;
-        top: 16px;
-        font-weight: bold;
-        white-space: nowrap;
-        color: #685127;
-      }
-
-      /* Left items → date on right side near center line */
-      .timeline-item.left .timeline-date {
-        right: -160px;
-        text-align: left;
-      }
-
-      /* Right items → date on left side near center line */
-      .timeline-item.right .timeline-date {
-        left: -160px;
-        text-align: left;
-      }
-
-      .left {
-        left: 0;
-        text-align: right;
-      }
-      .right {
-        left: 50%;
-        text-align: left;
-      }
-
-      .right::after {
-        left: -10px;
-      }
-
-      .content {
-        padding: 20px;
-        background-color: #f8f0e3;
-        border-radius: 12px;
-        display: inline-block; /* Bublina sa prispôsobí obsahu */
-        width: 100%;           /* Ale na mobile vyplní priestor */
-        text-align: left;      /* Poistka pre zarovnanie obsahu */
-      }
-
-      .content img {
-        width: 100%;       /* Obrázok vyplní celú šírku bubliny */
-        max-width: 100%;    /* Zrušíme to obmedzenie na 300px */
-        height: auto;
-        border-radius: 8px;
-        margin-bottom: 15px;
-        display: block;
-      }
-
-      .content a {
-        color: #685127;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .content h4 {
-        margin-top: 0;
-        color: #685127;
-        font-weight: bold;
-      }
-
-      /* Definícia animácie gradientu */
-      @keyframes gradient {
-          0% {
-              background-position: 0% 50%;
-          }
-          50% {
-              background-position: 100% 50%;
-          }
-          100% {
-              background-position: 0% 50%;
-          }
-      }
-
-      /* Responzivita pre mobily */
-      @media screen and (max-width: 768px) {
-        .timeline::after {
-          left: 31px;
-        }
-
-        .timeline-item {
-          width: 100%;
-          padding-left: 70px;
-          padding-right: 25px;
-          text-align: left;
-          left: 0;
-        }
-
-        .timeline-item::after {
-          left: 21px;
-          right: auto;
-        }
-
-        .left {
-          left: 0;
-        }
-        .right {
-          left: 0;
-        }
-
-         /* FIX DATE POSITION */
-        .timeline-date {
-          position: static;   /* remove absolute */
-          display: block;
-          margin-bottom: 10px;
-          text-align: left;
-
-          left: auto;         /* reset desktop offsets */
-          right: auto;
-        }
-      }
-
-      .small-gallery {
-        padding: 40px 20px;
-        padding-bottom: 0;
-        text-align: center;
-        background-color: #685127;
-        color: white;
-      }
-
-      .small-gallery h2 {
-        margin-bottom: 40px;
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-
-      .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 12px;
-      }
-
-      .gallery-item img {
-        width: 100%;
-        display: block;
-        transition: transform 0.4s ease;
-      }
-
-      .gallery-item:hover img {
-        transform: scale(1.05);
-      }
-
-      .overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 15px;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
-      .gallery-item:hover .overlay {
-        opacity: 1;
-      }
-
-      .fun-facts-section {
-        text-align: center;
-        margin: 80px 0;
-      }
-
-      .btn-funfacts {
-        font-size: clamp(1.5rem, 3vw, 2.2rem);
-        margin: 50px;
-        padding: 20px 50px;
-        background-color: white; /* Tvoja hlavná hnedá */
-        color: #685127;
-        border: none;
-        border-radius: 50px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-      }
-
-      /* Efekt pri prejdení myšou */
-      .btn-funfacts:hover {
-        background-color: #ffe4e1;
-        transform: scale(1.1); /* Ešte viac sa zväčší */
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        color: #4a3a1c;
-      }
-
-      .hidden {
-        display: none;
-      }
-
-      .fact-block {
-        margin: 50px 0;
-      }
-
-      .fact-block img {
-        max-width: 300px;
-        width: 100%;
-        border-radius: 10px;
-        margin: 15px 0;
-      }
-
-      .childhood-gallery {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;
-      }
-
-      .childhood-gallery img {
-        max-width: 220px;
-      }
-
-      /* --- FOOTER --- */
-      footer {
-        background: #685127;
-        color: white;
-        padding: 60px 20px;
-        text-align: center;
-      }
-
-      footer a {
-        color: #ffe4e1;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-    </style>
+    <link rel="stylesheet" href="style.css">   
+    <script src="script.js"></script>
   </head>
-  <body>
 
+  <body>
     <div class="hero hero-white">
       <img src="foto/FAVORIT.png" alt="Svadobný obrázok" />
     </div>
@@ -558,18 +38,11 @@
         </div>
       </div>
 
-       <p style=" padding-bottom: 20px; color: #685127; font-size:larger; font-style:italic">
+       <p style="padding-bottom: 20px; color: #685127; font-size:larger; font-style:italic">
         Milí hostia, chceli by sme vás poprosiť o potvrdenie účasti a vyplnenie potrebných informácií do 31.03.2026.
       </p>
 
-      <a
-        href="https://forms.gle/njdGcXNZVzwBo6KG8"
-        target="_blank"
-        class="btn-invite"
-      >
-        Potvrdiť účasť
-      </a>
-     
+      <a href="https://forms.gle/njdGcXNZVzwBo6KG8" target="_blank" class="btn-invite">Potvrdiť účasť</a>
     </div>
 
     <div class="info-section">
@@ -577,13 +50,10 @@
       <p>
         Obrad sa začína o <b>15:00</b> v kostole Panny Márie, Pomocnice kresťanov - Saleziáni Michalovce, na ulici <b>Špitálska 15</b>.
       </p>
-
       <img src="foto/stredisko.png" alt="Stredisko Saleziáni" />
-
       <p>
         Pri kostole&nbsp;(1) je k dispozícii parkovanie na hokejbalovom ihrisku v&nbsp;areáli saleziánskeho strediska&nbsp;(3). Ďalšie voľné parkovanie je&nbsp;pri COOP Jednote&nbsp;(4), v uličke medzi Úradom práce a&nbsp;saleziánskym strediskom smerom ku Chemkostav aréne&nbsp;(5), prípadne pred OTP Bankou&nbsp;(6).
       </p>
-
       <div>
         <iframe
           class="map-placeholder"
@@ -594,7 +64,6 @@
           frameborder="90"
         ></iframe>
       </div>
-
       <hr
         style="
           width: 50%;
@@ -602,30 +71,23 @@
           border-color: rgba(255, 255, 255, 0.3);
         "
       />
-
       <h3>Svadobná hostina</h3>
       <p>
         Po svätej omši a gratuláciách sa spoločne presunieme do&nbsp;<b>hotela Glamour na Šírave</b>, na&nbsp;adrese <b>Kaluža 744</b>, kde budeme pokračovať v oslavách až do skorého rána. ;)
       </p>
-
       <img src="foto/hotel_glamour.png" alt="Hotel Glamour" />
-   
       <p>
       Cesta na hotel trvá autom približne 15 minút.
       </p>
-
       <div>
         <iframe class="map-placeholder" style="border:none" src="https://mapy.com/s/delabahuje" width="400" height="280" frameborder="90"></iframe>
       </div>
-
       <p>
       Pri hoteli (1) je voľné parkovanie (2) priamo popri príjazdovej ceste po odbočení z hlavnej cesty.
       </p>
-
       <div>
       <iframe class="map-placeholder" style="border:none" src="https://mapy.com/s/jegasonofo" width="400" height="280" frameborder="90"></iframe>
       </div>
-
       <hr
         style="
           width: 50%;
@@ -633,7 +95,6 @@
           border-color: rgba(255, 255, 255, 0.3);
         "
       />
-
       <h3>Dary</h3>
       <p>
         Kvety nám zvädnú, dary nám zapadnú prachom a žreby... tie nám doteraz aj tak nikdy nevyšli. Ak nám chcete urobiť radosť, budeme vďační za príspevok na náš začiatok a spoločné dobrodružstvá. Poteší nás čokoľvek, čo je ploché, papierové a zmestí sa to do jednej nenápadnej obálky. :)
@@ -740,16 +201,9 @@
       <h1 style="color: white; padding: 20px;">Naša mini galéria</h1>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="foto/valne2015.jpg" alt="Valné">
+          <img src="foto/prvevyrocie.JPG" alt="Valné">
           <div class="overlay">
-            <p>Naša úplne prvá spoločná fotka z roku 2016, keď sme o sebe netušili.</p>
-          </div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="foto/pizza.jpeg" alt="Lisabon">
-          <div class="overlay">
-            <p>Pizza len tak</p>
+            <p>Naše prvé výročie na svadbe v Prahe</p>
           </div>
         </div>
 
@@ -757,6 +211,20 @@
           <img src="foto/rim.jpg" alt="Rím">
           <div class="overlay">
             <p>Potulky v Ríme</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="foto/bazilika.JPG" alt="bazilika">
+          <div class="overlay">
+            <p>Pred bazilikou sv. Petra</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="foto/pizza.jpeg" alt="Lisabon">
+          <div class="overlay">
+            <p>Pizza len tak</p>
           </div>
         </div>
 
@@ -772,12 +240,40 @@
             <div class="overlay">
               <p>Jedno z prvých rande v Martinuse ešte počas pandémie</p>
             </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="foto/promocie.jpeg" alt="Práca">
+          <div class="overlay">
+            <p>Jankine promócie</p>
           </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="foto/trencin.jpg" alt="Skalka">
+          <div class="overlay">
+            <p>Pri Skalke</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="foto/olv.HEIC" alt="olv">
+          <div class="overlay">
+            <p>Na Ondrejskej ľudovej veselici v UPeCe</p>
+          </div>
+        </div>
 
         <div class="gallery-item">
           <img src="foto/bus.jpeg" alt="bus">
           <div class="overlay">
             <p>V autobuse</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="foto/ikea.jpeg" alt="Ikea">
+          <div class="overlay">
+            <p>Kto nemá rád ikeu?</p>
           </div>
         </div>
 
@@ -819,7 +315,7 @@
         <div class="gallery-item">
             <img src="foto/cabodaroca.jpg" alt="Západny cíp Európy">
             <div class="overlay">
-              <p>Západny cíp Európy </p>
+              <p>Na najzápadnejšom cípe pevniny Európy: Cabo da Roca</p>
             </div>
           </div>
 
@@ -840,7 +336,7 @@
         <div class="gallery-item">
             <img src="foto/ufo.JPG" alt="Na moste SNP v ufe">
             <div class="overlay">
-              <p>Na moste SNP v ufe</p>
+              <p>Na moste SNP v "ufe"</p>
             </div>
           </div>
 
@@ -848,6 +344,13 @@
             <img src="foto/lietadlo.jpeg" alt="lietadlo">
             <div class="overlay">
               <p>V lietadle</p>
+            </div>
+          </div>
+
+        <div class="gallery-item">
+            <img src="foto/lezenie.JPG" alt="Lezenie">
+            <div class="overlay">
+              <p>Pri lezeckej stene vo Važci na VIDES víkendovke</p>
             </div>
           </div>
 
@@ -872,112 +375,33 @@
             </div>
           </div>
 
-        <div class="gallery-item">
-            <img src="foto/reserve.jpeg" alt="Dano">
+          <div class="gallery-item">
+            <img src="foto/korcule.JPG" alt="Korčuľovanie">
             <div class="overlay">
-              <p>Dámy, lepšie by som to nepovedala. Tento pán je už žiaľ rezervovaný! </p>
+              <p>Korčuľovanie v Košiciach v parku pri stanici</p>
+            </div>
+          </div>
+
+        <div class="gallery-item">
+            <img src="foto/lietadielko.jpeg" alt="Lietadlo">
+            <div class="overlay">
+              <p>Let ponad Bratislavu</p>
+            </div>
+          </div>
+
+        <div class="gallery-item">
+            <img src="foto/reserve.jpeg" alt="Reservé">
+            <div class="overlay">
+              <p>Dano je už rezervovaný!</p>
             </div>
           </div>
         </div>
 
-        <button class="btn-funfacts" id="toggleFactsBtn">Tak vy ešte nemáte dosť?</button>
+        <button class="btn-funfacts"><a href="funfacts.html">Tak vy ešte nemáte dosť?</a></button>
       </div>
 
-      <div class="fun-facts-section" id="funFacts" class="hidden">
-          <h1>Fun facts</h1>
-
-          <!-- 2016 – first meeting -->
-          <div class="fact-block">
-            <h3>Rok 2016 – stretli sme sa (a ani sme o tom nevedeli)</h3>
-            <img src="images/2016-akcia.jpg" alt="Naša fotografia z roku 2016">
-            <p>
-              Táto fotka je z akcie v roku 2016. Vtedy sme sa stretli prvýkrát,
-              no ešte sme netušili, že raz budeme spolu.
-            </p>
-          </div>
-
-          <!-- Dating song -->
-          <div class="fact-block">
-            <h3>Pesnička nášho začiatku</h3>
-            <p>
-              Keď sme spolu začali chodiť, všade hrala
-              <strong>Easy On Me – Adele (2021)</strong>.
-              Tento hit je už navždy spojený s naším začiatkom.
-            </p>
-          </div>
-
-          <!-- Full moon -->
-          <div class="fact-block">
-            <h3>18.11.2021 🌕</h3>
-            <p>
-              V deň, ktorý je pre nás dôležitý, bol spln.
-              Úplnok je symbolom nových začiatkov – a pre nás to platilo dvojnásobne.
-            </p>
-          </div>
-
-          <!-- Childhood photos -->
-          <div class="fact-block">
-            <h3>Naše detstvo</h3>
-            <div class="childhood-gallery">
-              <div>
-                <img src="images/ona-dieta.jpg" alt="Nevesta ako dieťa s rodičmi">
-                <p>Ona s rodičmi</p>
-              </div>
-              <div>
-                <img src="images/on-dieta.jpg" alt="Ženích ako dieťa s rodičmi">
-                <p>On s rodičmi</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Work and hobbies -->
-          <div class="fact-block">
-            <h3>Kde sme dnes</h3>
-            <p>
-              Dnes pracujeme v oblastiach, ktoré nás bavia a napĺňajú.
-              Vo voľnom čase radi cestujeme, športujeme a trávime čas s rodinou a priateľmi.
-            </p>
-          </div>
-      </div>
-
-    <footer>
-      <p>Máte akékoľvek otázky? Neváhajte nás kontaktovať s čímkoľvek na:</p>
-      <p><a href="mailto:nafurt.jedno@gmail.com">nafurt.jedno@gmail.com</a></p>
+    <footer class="fun-footer">
+      <p>Máte otázky? Neváhajte nás kontaktovať s čímkoľvek na <a href="mailto:nafurt.jedno@gmail.com">nafurt.jedno@gmail.com</a></p>
     </footer>
-
-    <script>
-      const weddingDate = new Date("May 1, 2026 15:00:00").getTime();
-
-      function updateCountdown() {
-        const now = new Date().getTime();
-        const diff = weddingDate - now;
-
-        if (diff > 0) {
-          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor(
-            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-          );
-          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-
-          document.getElementById("days").innerText = days;
-          document.getElementById("hours").innerText = hours;
-          document.getElementById("minutes").innerText = minutes;
-        }
-      }
-
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-    </script>
-
-    <script>
-      const button = document.getElementById("toggleFactsBtn");
-      const facts = document.getElementById("funFacts");
-
-      button.addEventListener("click", () => {
-        facts.classList.remove("hidden");   // show section
-        button.style.display = "none";     // hide button permanently
-      });
-    </script>
-
   </body>
 </html>
