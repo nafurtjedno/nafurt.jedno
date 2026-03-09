@@ -442,7 +442,8 @@
             transition: opacity 0.4s ease;
         }
 
-        .gallery-item:hover .overlay {
+        .gallery-item:hover .overlay 
+        .gallery-item:focus-within .overlay {
             opacity: 1;
         }
 
