@@ -128,7 +128,7 @@
             border: none;
             border-radius: 50px;
             font-weight: bold;
-            text-transform: uppercase;
+            /* text-transform: uppercase; */
             letter-spacing: 2px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
@@ -209,6 +209,39 @@
             align-items: center;
             border-radius: 8px;
         }
+
+        /* --- ŠTÝL PRE DARY A IBAN --- */
+      .gifts-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-bottom: 40px;
+      }
+
+      .iban-box {
+        background: rgba(255, 255, 255, 0.1); /* Jemný priehľadný podklad */
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 25px;
+        margin-top: 30px;
+        border-radius: 12px;
+        text-align: center; /* IBAN nechajme v strede pre lepšiu prehľadnosť */
+      }
+
+      .iban-label {
+        font-size: 0.9rem !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px !important;
+        opacity: 0.9;
+      }
+
+      .iban-number {
+        font-family: 'Courier New', Courier, monospace; /* Monospace font pre ľahšie čítanie číslic */
+        font-size: clamp(1.1rem, 4vw, 1.6rem);
+        font-weight: bold;
+        letter-spacing: 2px;
+        display: block;
+        color: #ffffff;
+      }
 
         /* --- ČASOVÁ OS (TIMELINE) --- */
         .timeline-section {
