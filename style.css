@@ -105,6 +105,24 @@
             color: #666;
         }
 
+
+        .svadobna-fotka-container {
+    text-align: center;
+    margin: 30px auto; /* Vytvorí peknú medzeru pod odpočítavadlom */
+    max-width: 600px;  /* Maximálna šírka fotky, aby nebola cez celú obrazovku na PC */
+    padding: 0 15px;   /* Odsadenie od krajov na mobiloch */
+}
+
+.svadobna-fotka {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Jemne zaoblené rohy, vyzerá to modernejšie */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Jemný tieň pod fotkou */
+    
+    /* Ak by fotka náhodou nebola čistá čiernobiela, tento filter to zabezpečí: */
+    filter: grayscale(100%); 
+}
+
         /* --- TLAČIDLO PRE POZVANÝCH (UPRAVENÉ) --- */
         .invite-section {
             /* Poriadne farebný gradient (kombinácia svadobnej ružovej a zlatej) */
